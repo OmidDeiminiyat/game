@@ -1,5 +1,16 @@
 import { isNormal } from "./riveControler.js";
 import { isFirst } from "./riveControler.js";
+import { isHealth } from "./riveControler.js";
+import { isEat } from "./riveControler.js";
+import { myBool } from "./riveControler.js";
+import { socket } from "./socket/socketController.js";
+
+
+
+
+
+const test = isHealth;
+console.log(test);
 
 let feedButton = document.getElementById('feedButton');
 
@@ -7,6 +18,7 @@ window.addEventListener("keydown", (ev) => {
 
     console.log(ev.key);
     
+
     if (ev.key === 'ArrowUp') {
         console.log('its up');
         
@@ -24,7 +36,33 @@ window.addEventListener("keydown", (ev) => {
         }
         second();
     }
+
+    if (ev.key === 'a') {
+        const eating = () => {
+            isEat.fire();
+
+            socket.emit('feed', {isEat: 'client feeds'});
+        };
+        eating();
+
+    function updateHealthValue(amount) {
+        
+        if (isHealth.value) {
+            console.log(isHealth.value);
+             isHealth.value += amount; 
+        } else {
+          console.error('value is not available.');
+        }
+      }
+      updateHealthValue(10);
+    }
+
+ 
+      
+    
 })
+
+
 
 const feed = () => {
     isNormal.fire();
