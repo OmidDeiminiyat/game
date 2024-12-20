@@ -4,6 +4,8 @@ import { isHealth } from "./riveControler.js";
 import { isEat } from "./riveControler.js";
 import { myBool } from "./riveControler.js";
 import { socket } from "./socket/socketController.js";
+import { beSad } from "./riveControler.js";
+import { isDie } from "./riveControler.js";
 
 
 
@@ -18,6 +20,12 @@ window.addEventListener("keydown", (ev) => {
 
     console.log(ev.key);
     
+    if (ev.key === 'f') {
+        const Sad = () => {
+            beSad.fire();
+        };
+        Sad();
+    }
 
     if (ev.key === 'ArrowUp') {
         console.log('its up');
@@ -28,6 +36,7 @@ window.addEventListener("keydown", (ev) => {
 
         feed();
     }
+
 
     if (ev.key === 'ArrowDown') {
         

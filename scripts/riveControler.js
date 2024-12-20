@@ -3,6 +3,8 @@ let isFirst;
 let isHealth;
 let isEat;
 let myBool;
+let beSad;
+let isDie;
 
 let riveInstance = new rive.Rive({
 src: "../assets/anim.riv", 
@@ -21,6 +23,8 @@ onLoad: () => {
      isFirst = controler_input.find((item) => item.name === 'timeline1');
     isEat = controler_input.find((item) => item.name === 'eat');
     myBool = controler_input.find((item) => item.name === 'Bool');
+    beSad = controler_input.find((item) => item.name === 'Sad');
+    isDie = controler_input.find((item) => item.name === 'died');
 
      isHealth = healthControl.find((item) => item.name === 'numHealth');
    
@@ -28,4 +32,4 @@ onLoad: () => {
 },
 });
 
-export {isNormal, isFirst, isHealth, isEat, myBool};
+export {isNormal, isFirst, isHealth, isEat, myBool, beSad, isDie};
